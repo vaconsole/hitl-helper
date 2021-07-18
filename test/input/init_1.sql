@@ -1,0 +1,39 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE [a] (
+   id TEXT,
+   ref TEXT
+);
+INSERT INTO a VALUES('a1','b1');
+INSERT INTO a VALUES('a2','b2');
+INSERT INTO a VALUES('a3','c1');
+CREATE TABLE [b] ([id] TEXT);
+
+INSERT INTO
+   b
+VALUES
+('b1');
+
+INSERT INTO
+   b
+VALUES
+('b2');
+
+INSERT INTO
+   b
+VALUES
+('b3');
+
+CREATE TABLE c(id text NOT NULL);
+
+INSERT INTO
+   c
+VALUES
+('c1');
+
+INSERT INTO
+   c
+VALUES
+('c2');
+
+COMMIT;

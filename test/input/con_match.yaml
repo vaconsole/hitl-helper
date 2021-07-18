@@ -1,0 +1,24 @@
+- 
+  source: a
+  source_id: a1
+  con_id: a1
+- 
+  source: a
+  source_id: a2
+  con_id: a2
+- 
+  source: a
+  source_id: a3
+  con_id: a3
+- 
+  source: b
+  source_id: b1
+  con_id: b1
+- 
+  source: b
+  source_id: b2
+  con_id: b2
+- 
+  source: c
+  source_id: b3
+  con_id: b3
