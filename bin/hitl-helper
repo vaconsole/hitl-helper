@@ -54,11 +54,4 @@ program.command('reject <dbPath> <job_id>').action((dbPath, job_id) => {
   return rejectJob({ db, job_id })
 })
 
-program
-  .command('match <dbPath> <table> <indexColumns>')
-  .action((dbPath, table, indexColumns) => {
-    const db = new Database(dbPath)
-    match(db, table, indexColumns.split(','))
-  })
-
 program.parse(process.argv)

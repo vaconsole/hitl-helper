@@ -14,12 +14,6 @@ beforeEach(() => {
 
 afterEach(() => {})
 
-test('basic_init', () => {
-  db.exec(fs.readFileSync('test/input/init.sql', 'utf-8'))
-  const result = concord.initJob(db)
-  concord.initJob(db)
-})
-
 test('jsonCreateTable', () => {
   const data = [
     {
@@ -187,7 +181,6 @@ test('insertJsonToTable upserts', () => {
 
 test('createJob', () => {
   db.exec(fs.readFileSync('test/input/init_2.sql', 'utf-8'))
-  concord.initJob(db)
   const job = {
     description: 'test job',
     pk: 'rowid',
