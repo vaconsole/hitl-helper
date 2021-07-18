@@ -1,12 +1,29 @@
 {
   "name": "hitl-helper",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "bin": {
+    "concord": "bin/concord"
   },
   "keywords": [],
+  "dependencies": {
+    "better-sqlite3": "^7.4.1",
+    "commander": "^7.2.0",
+    "generate-schema": "^2.6.0",
+    "lodash": "^4.17.21",
+    "npm": "^7.18.1",
+    "sql-escape": "^1.0.1",
+    "sqlstring-sqlite": "^0.1.1"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "description": ""
 }

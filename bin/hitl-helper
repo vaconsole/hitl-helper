@@ -1,18 +1,23 @@
 #!/usr/bin/env node
 const program = require('commander')
 const Database = require('better-sqlite3')
-const { init, populate, match } = require('../lib/index')
-
-program.command('init <dbPath>').action((dbPath) => {
-  const db = new Database(dbPath)
-  init(db)
-})
+const {
+  createJob,
+  jsonCreateTable,
+  insertJsonToTable,
+  getJob,
+  updateJob,
+  submitJob,
+  acceptJob,
+  assignJob,
+  rejectJob,
+} = require('../lib/index')
 
 program
-  .command('populate <dbPath> <table> <pk>')
-  .action((dbPath, table, pk) => {
+  .command('create <dbPath> <sql> <pk> [description]')
+  .action((dbPath, sql, pk, description = '') => {
     const db = new Database(dbPath)
-    populate(db, table, pk)
+    return createJob({ db, description, sql, pk })
   })
 
 program

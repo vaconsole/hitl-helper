@@ -1,4 +1,4 @@
-const concord = require('../lib/job')
+const concord = require('../lib/index')
 const fs = require('fs')
 const Database = require('better-sqlite3')
 const dbPath = 'test/input/input.db'
