@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const program = require('commander')
 const Database = require('better-sqlite3')
+const jsonfile = require('jsonfile')
 const {
   createJob,
   jsonCreateTable,
@@ -19,6 +20,39 @@ program
     const db = new Database(dbPath)
     return createJob({ db, description, sql, pk })
   })
+
+program.command('update <dbPath> <job_id>').action((dbPath, job_id) => {
+  const db = new Database(dbPath)
+  return updateJob({ db, job_id })
+})
+
+program.command('get <dbPath> <job_id>').action((dbPath, job_id) => {
+  const db = new Database(dbPath)
+  console.log(JSON.stringify(getJob({ db, job_id })))
+})
+
+program.command('assign <dbPath> <job_id>').action((dbPath, job_id) => {
+  const db = new Database(dbPath)
+  return assignJob({ db, job_id })
+})
+
+program
+  .command('submit <jsonDataPath> <dbPath> <job_id>')
+  .action((jsonDataPath, dbPath, job_id) => {
+    const db = new Database(dbPath)
+    const data = jsonfile.readFileSync(jsonDataPath)
+    return submitJob(data, { db, job_id })
+  })
+
+program.command('accept <dbPath> <job_id>').action((dbPath, job_id) => {
+  const db = new Database(dbPath)
+  return acceptJob({ db, job_id })
+})
+
+program.command('reject <dbPath> <job_id>').action((dbPath, job_id) => {
+  const db = new Database(dbPath)
+  return rejectJob({ db, job_id })
+})
 
 program
   .command('match <dbPath> <table> <indexColumns>')
